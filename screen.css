@@ -10,7 +10,7 @@ header, form{
 ul li{
     margin: 10px;
     display: inline-block;
-    align:center;
+    text-align:center;
 
 }
 
