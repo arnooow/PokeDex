@@ -4,6 +4,8 @@ ul li{
 }
 
 ul li a{
+    border: 1px black solid
+    border-radius: 5px
     text-decoration: none;
     color: white;
     padding: 5px;
