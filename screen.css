@@ -55,7 +55,7 @@ input[type="submit"]:hover{
 }
 
 
-#pokemon:after {
+.cf:after {
     visibility: hidden;
     display: block;
     font-size: 0;
@@ -70,7 +70,8 @@ input[type="submit"]:hover{
     margin-top: 10px;
     width: 80%;
     background-color: red;
-
+    border:3px solid white;
+    border-radius: 25px;
 }
 
 #Pokemons figure {
