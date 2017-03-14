@@ -1,0 +1,52 @@
+/**
+ * Created by arnow on 14/03/2017.
+ */
+
+var apiLink = "https://pokeapi.co/api/v2/pokemon/";
+
+var doAjax = function (url) {
+
+    var val = $('#pokesearch').val();
+
+    apiLink += val;
+
+    $.ajax({
+
+        url: apiLink,
+
+        dataType: "json"
+    }).done(function loopOverJSON(obj) {
+        console.log("take 1 " + obj);
+        //result = JSON.parse(result);
+        //$("#tekst").html(result);
+
+        //elementen geven
+        $('#tekst').text('');
+        for (var key in obj) {
+            if (typeof obj[key] !== "object") {
+                console.log(key + " = " + obj[key]);
+                $('#tekst').append('<p>' + obj[key] + '<p>');
+            } else {
+                loopOverJSON(obj[key]);
+            }
+        }
+    });
+
+};
+
+function OnApiCallSuccess(data) {
+    $("#afbeeldingen").text('');
+
+    $.each(data.items, function(i, item) {
+        $("<img>").attr("src", item.media.m).appendTo("#Pokemons");
+
+        // Load only the first 6 images for demo
+        if (i === 20) return false;
+    });
+}
+
+
+$(document).ready(function () {
+    $('#pokesearch').on('click', doAjax);
+
+});
